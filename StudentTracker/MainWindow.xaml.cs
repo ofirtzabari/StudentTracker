@@ -3,6 +3,7 @@ using CsvHelper;
 using Newtonsoft.Json;
 using System.Globalization;
 using System.IO;
+using System.Runtime.Intrinsics.X86;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -20,6 +21,7 @@ namespace StudentTracker
         const String TBPATH = "Click Me To Browse";
         private String[] keyNames = null;
         private bool hasChanged = false;
+        private string FINAL = "Final Grades Averages";
         #endregion
 
         public MainWindow()
@@ -81,8 +83,6 @@ namespace StudentTracker
                 var csv = new CsvReader(reader, CultureInfo.InvariantCulture);
                 var records = csv.GetRecords<dynamic>();
 
-
-
                 //JSON serialization
                 String json = JsonConvert.SerializeObject(records);
                 string coursreName = System.IO.Path.GetFileName(pathTB.Text);
@@ -127,11 +127,15 @@ namespace StudentTracker
                 return;
 
             detailsBlock.Text = "";
-            studentsBox.ItemsSource = null;
-            tbfinal.Text = combox.SelectedItem.ToString() + " (Final Grades Average)";
+            studentsBox.ItemsSource = null; 
             readJson(combox.SelectedItem.ToString());
             avgLabel.Content = "Average: ";
             this.Title = combox.SelectedItem.ToString();
+            double avg = calcOverAllAVG();
+            //format the average to 2 decimal points
+            string avgStr = String.Format("{0:F2}", avg);
+            tbfinal.Text = combox.SelectedItem.ToString() + "(" + FINAL + " : " + avgStr + " )";
+
         }
 
         /// <summary>
@@ -192,7 +196,8 @@ namespace StudentTracker
             {
                 gradesPanel.Children.OfType<StackPanel>().ElementAt(i).Children.OfType<TextBox>().First().Text = s.Grades[i].ToString();
             }
-            calcAverage();
+            double avg = calcAverage(s);
+            avgLabel.Content = "Average: " + String.Format("{0:F2}", avg);
         }
 
         /// <summary>
@@ -259,12 +264,11 @@ namespace StudentTracker
         /// <summary>
         /// calculate the average of the student grades
         /// </summary>
-        private void calcAverage()
+        private double calcAverage(Student s)
         {
-            Student s = (Student)studentsBox.SelectedItem;
             if (s == null)
             {
-                return;
+                return 0;
             }
 
             double avg = 0;
@@ -277,7 +281,7 @@ namespace StudentTracker
                     grade = "0";
                 avg += double.Parse(grade) * (precent / 100);
             }
-            avgLabel.Content = "Average: " + String.Format("{0:F2}", avg);
+            return avg;
         }
 
         /// <summary>
@@ -329,7 +333,7 @@ namespace StudentTracker
                 {
                     tb.Text = "100";
                 }
-                calcAverage();
+                calcAverage((Student)studentsBox.SelectedItem);
                 UpdateStudentGrades(tb);
             }
         }
@@ -485,6 +489,40 @@ namespace StudentTracker
                 }
             return false;
         }
+       
+        /// <summary>
+        /// calculate the overall average of the students
+        /// </summary>
+        /// <returns></returns>
+        private double calcOverAllAVG()
+        {
+            //split the key name to the name and the percent into new 2 arrays
+
+            double sum = 0;
+            double totalPercent = 0;
+            string[] names = new string[keyNames.Length];
+            double[] percents = new double[keyNames.Length];
+            for (int i = 0; i < keyNames.Length; i++)
+            {
+                string[] nameAndPercent = keyNames[i].Split('-');
+                names[i] = nameAndPercent[0];
+                percents[i] = double.Parse(nameAndPercent[1].Replace("%", ""));
+                totalPercent += percents[i];
+            }
+
+            foreach (Student s in studentsBox.ItemsSource)
+            {
+                double studentAVG = 0;
+                for (int i = 0; i < keyNames.Length; i++)
+                {
+                    studentAVG += s.Grades[i] * (percents[i] / totalPercent);
+                }
+                sum += studentAVG;
+            }
+
+            return sum/studentsBox.Items.Count;
+        }
+        
     }
 
 
