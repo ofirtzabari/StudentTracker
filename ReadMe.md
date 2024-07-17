@@ -1,11 +1,13 @@
 Instructions for use:
 1. press the "Load Course" button and choose the course file(.csv).
-	-CSV columns must be like this:
+	
+ -CSV columns must be like this:
 	Name
 	LastName
 	ZehutNumber
 	Year
-	- The other columns:
+	
+ - The other columns:
 	{assignment name} - {percentage of the grade} (two columns with the same name are not allowed)
 3. press the "Load" button to load the course data.
 4. look at the student in the list and select one.
