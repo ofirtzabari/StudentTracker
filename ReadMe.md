@@ -1,15 +1,15 @@
-# Student Tracker #
-Overview
+# Student Tracker
+## Overview
 
-The Student Tracker is an application designed to manage student data and grades. It allows users to load course data from a CSV file, view and edit student details, and apply grade factors to assignments.
-Features
+### The Student Tracker is an application designed to manage student data and grades. It allows users to load course data from a CSV file, view and edit student details, and apply grade factors to assignments.
+Features:
 
     Load course data from a CSV file.
     View and edit student details and grades.
     Apply grade factors to all students for a specific assignment.
 
-Instructions for Use
-Loading a Course
+## Instructions for Use
+### Loading a Course
 
     Press the "Load Course" button and choose the course file (.csv).
 
@@ -22,29 +22,29 @@ Loading a Course
 
     Press the "Load" button to load the course data.
 
-Viewing and Editing Student Data
+### Viewing and Editing Student Data
 
     Look at the student list and select a student.
     View the student details and grades.
     To change a grade, select the assignment and update the grade.
 
-Applying a Factor
+### Applying a Factor
 
     Press the "Factor" button.
     Enter the factor value (note: factors cannot be negative).
 
-Important Notes
+### Important Notes
 
     Using a CSV file with the same course name as one already loaded will delete the current course data.
     Only the Save button will save the data to the course file.
     Factors cannot be negative.
 
-Dependencies
+### Dependencies
 
     CsvHelper
     Newtonsoft.Json / GroupDocs.Conversion
 
-Project Structure
+### Project Structure
 
     .gitattributes
     .gitignore
@@ -62,7 +62,7 @@ Project Structure
         StudentTracker.csproj
     pics
 
-How to Contribute
+# How to Contribute
 
     Fork the repository.
     Create a new branch (git checkout -b feature-branch).
