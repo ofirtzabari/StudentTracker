@@ -1,4 +1,4 @@
-Student Tracker
+# Student Tracker #
 Overview
 
 The Student Tracker is an application designed to manage student data and grades. It allows users to load course data from a CSV file, view and edit student details, and apply grade factors to assignments.
