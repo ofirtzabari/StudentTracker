@@ -4,23 +4,24 @@
 ### The Student Tracker is an application designed to manage student data and grades. It allows users to load course data from a CSV file, view and edit student details, and apply grade factors to assignments.
 Features:
 
-    Load course data from a CSV file.
-    View and edit student details and grades.
-    Apply grade factors to all students for a specific assignment.
+    - Load course data from a CSV file.
+    - View and edit student details and grades.
+    - Apply grade factors to all students for a specific assignment.
 
 ## Instructions for Use
+
 ### Loading a Course
 
-    Press the "Load Course" button and choose the course file (.csv).
+    - Press the "Load Course" button and choose the course file (.csv).
 
-    CSV columns must be formatted as follows:
-        Name
-        LastName
-        ZehutNumber
-        Year
-        The remaining columns should follow the format: {assignment name} - {percentage of the grade}. Duplicate column names are not allowed.
+    - CSV columns must be formatted as follows:
+        - Name
+        - LastName
+        - ZehutNumber
+        - Year
+        - The remaining columns should follow the format: {assignment name} - {percentage of the grade}. Duplicate column names are not allowed.
 
-    Press the "Load" button to load the course data.
+    - Press the "Load" button to load the course data.
 
 ### Viewing and Editing Student Data
 
