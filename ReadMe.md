@@ -1,23 +1,71 @@
-Instructions for use:
-1. press the "Load Course" button and choose the course file(.csv).
- - CSV columns must be like this:
-	- Name
-	- LastName
-	- ZehutNumber
-	- Year
- - The other columns:
-	{assignment name} - {percentage of the grade} (two columns with the same name are not allowed)
+Student Tracker
+Overview
 
-3. press the "Load" button to load the course data.
-4. look at the student in the list and select one.
-5. now you can see the student details and the grades.
-6. if you want to change the grade, select the assignment and change the grade.
-7. if you want to give factor to all students in some assignment, press the "Factor" button and enter the factor.
+The Student Tracker is an application designed to manage student data and grades. It allows users to load course data from a CSV file, view and edit student details, and apply grade factors to assignments.
+Features
 
-*use csv with the same name of course that already loaded will cause delete the current course data*
-*only save button will save the data to the courseFile*
-*factor cant be negative*
+    Load course data from a CSV file.
+    View and edit student details and grades.
+    Apply grade factors to all students for a specific assignment.
 
-Nugget:
--CsvHelper
--Newtonsoft.Json / GroupDocs.Conversion
+Instructions for Use
+Loading a Course
+
+    Press the "Load Course" button and choose the course file (.csv).
+
+    CSV columns must be formatted as follows:
+        Name
+        LastName
+        ZehutNumber
+        Year
+        The remaining columns should follow the format: {assignment name} - {percentage of the grade}. Duplicate column names are not allowed.
+
+    Press the "Load" button to load the course data.
+
+Viewing and Editing Student Data
+
+    Look at the student list and select a student.
+    View the student details and grades.
+    To change a grade, select the assignment and update the grade.
+
+Applying a Factor
+
+    Press the "Factor" button.
+    Enter the factor value (note: factors cannot be negative).
+
+Important Notes
+
+    Using a CSV file with the same course name as one already loaded will delete the current course data.
+    Only the Save button will save the data to the course file.
+    Factors cannot be negative.
+
+Dependencies
+
+    CsvHelper
+    Newtonsoft.Json / GroupDocs.Conversion
+
+Project Structure
+
+    .gitattributes
+    .gitignore
+    ClassLibrary
+    ReadMe.md
+    StudentTracker.sln
+    StudentTracker
+        App.xaml
+        App.xaml.cs
+        AssemblyInfo.cs
+        FactorWindow.xaml
+        FactorWindow.xaml.cs
+        MainWindow.xaml
+        MainWindow.xaml.cs
+        StudentTracker.csproj
+    pics
+
+How to Contribute
+
+    Fork the repository.
+    Create a new branch (git checkout -b feature-branch).
+    Commit your changes (git commit -am 'Add new feature').
+    Push to the branch (git push origin feature-branch).
+    Create a new Pull Request.
