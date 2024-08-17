@@ -63,6 +63,11 @@ StudentTracker
     StudentTracker.csproj
 pics
 
+![Main](https://github.com/ofirtzabari/StudentTracker/blob/master/pics/main.png)
+![Browse](https://github.com/ofirtzabari/StudentTracker/blob/master/pics/browse.png)
+![Students](https://github.com/ofirtzabari/StudentTracker/blob/master/pics/students.png)
+![Factor](https://github.com/ofirtzabari/StudentTracker/blob/master/pics/factor.png)
+
 # How to Contribute
 
 Fork the repository.
