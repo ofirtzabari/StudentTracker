@@ -47,21 +47,21 @@ Newtonsoft.Json / GroupDocs.Conversion
 
 ### Project Structure
 
-.gitattributes
-.gitignore
-ClassLibrary
-ReadMe.md
-StudentTracker.sln
-StudentTracker
-    App.xaml
-    App.xaml.cs
-    AssemblyInfo.cs
-    FactorWindow.xaml
-    FactorWindow.xaml.cs
-    MainWindow.xaml
-    MainWindow.xaml.cs
-    StudentTracker.csproj
-pics
+- .gitattributes
+- .gitignore
+- ClassLibrary
+- ReadMe.md
+- StudentTracker.sln
+- StudentTracker
+    - App.xaml
+    - App.xaml.cs
+    - AssemblyInfo.cs
+    - FactorWindow.xaml
+    - FactorWindow.xaml.cs
+    - MainWindow.xaml
+    - MainWindow.xaml.cs
+    - StudentTracker.csproj
+- pics
 
 ![Main](https://github.com/ofirtzabari/StudentTracker/blob/master/pics/main.png)
 ![Browse](https://github.com/ofirtzabari/StudentTracker/blob/master/pics/browse.png)
